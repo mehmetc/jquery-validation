@@ -1122,4 +1122,12 @@ test("cifES", function() {
 	ok(!method( "B-43.522.192" ), "CIF invalid: dots and dash" );
 });
 
+test("socialsecurityBE", function() {
+	var method = methodTest("socialsecurityBE");
+        ok( method("72020290081"), "SOCIAL SECURITY valid");
+        ok( method("00012556777"), "SOCIAL SECURITY valid");
+        ok( !method("7020290081"), "SOCIAL SECURITY invalid. 11 digits");
+        ok( !method("71231231020290081"), "SOCIAL SECURITY invalid. 11 digits");
+        ok( !method("ABCDEFGHIJK"), "SOCIAL SECURITY invalid. 11 digits");
+});
 })(jQuery);
